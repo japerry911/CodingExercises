@@ -10,6 +10,21 @@ Return an array where the ith element is the final price you will pay for the it
 item of the shop considering the special discount.
 */
 
-const finalPrices = (prices) => {};
+const finalPrices = (prices) => {
+  const returnPrices = [];
+
+  MainLoop: for (let i = 0; i < prices.length - 1; i++) {
+    for (let r = i + 1; r < prices.length; r++) {
+      if (prices[i] >= prices[r]) {
+        returnPrices.push(prices[i] - prices[r]);
+        continue MainLoop;
+      }
+    }
+    returnPrices.push(prices[i]);
+  }
+  returnPrices.push(prices[prices.length - 1]);
+
+  return returnPrices;
+};
 
 module.exports = finalPrices;

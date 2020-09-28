@@ -10,6 +10,8 @@ letters. Letters are case sensitive, so "a" is considered a different type of
 stone from "A".
 """
 
+from functools import reduce
+
 
 def num_jewels_in_stones(j: str, s: str) -> int:
     # return the reduced stones to jewels count
